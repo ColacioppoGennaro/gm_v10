@@ -24,7 +24,7 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router basename="/gm_v10">
       <div className="app">
         <Routes>
           <Route path="/login" element={

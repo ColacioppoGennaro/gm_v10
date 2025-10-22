@@ -2,6 +2,12 @@
 
 Un'applicazione web multiutente per la gestione intelligente di eventi, documenti e promemoria, potenziata da Google Calendar e Gemini AI 2.0 Flash.
 
+## 🌐 URLs Produzione
+
+- **Frontend**: `http://www.gruppogea.net/gm_v10/`
+- **API Backend**: `http://www.gruppogea.net/gm_v10/api/` (proxy verso localhost:5000)
+- **Health Check**: `http://www.gruppogea.net/gm_v10/api/health`
+
 ## Caratteristiche
 
 - **Autenticazione sicura** con email e password
@@ -93,10 +99,10 @@ GEMINI_API_KEY=la_tua_api_key_gemini
 # Google Calendar
 GOOGLE_CLIENT_ID=il_tuo_client_id
 GOOGLE_CLIENT_SECRET=il_tuo_client_secret
-GOOGLE_REDIRECT_URI=https://tuodominio.com/api/auth/google/callback
+GOOGLE_REDIRECT_URI=http://www.gruppogea.net/gm_v10/api/auth/google/callback
 
 # Frontend URL
-FRONTEND_URL=https://tuodominio.com
+FRONTEND_URL=http://www.gruppogea.net
 ```
 
 ### 5. Avvio Server Backend

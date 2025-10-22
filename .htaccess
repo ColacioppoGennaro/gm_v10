@@ -1,0 +1,24 @@
+# GM v10 - Root .htaccess
+# This file handles API proxy and redirects to frontend
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /gm_v10/
+
+  # Proxy API requests to backend on port 5000
+  RewriteCond %{REQUEST_URI} ^/gm_v10/api/
+  RewriteRule ^api/(.*)$ http://localhost:5000/api/$1 [P,L]
+
+  # Serve frontend from dist folder
+  RewriteCond %{REQUEST_URI} !^/gm_v10/frontend/dist/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ frontend/dist/$1 [L]
+</IfModule>
+
+# Enable CORS for API
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+  Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
